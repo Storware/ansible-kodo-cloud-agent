@@ -1,1 +1,4 @@
 ---
+ms_repo_url: "https://packages.microsoft.com/rhel/{{ ansible_distribution_major_version }}/prod"
+ms_repo_gpg_key: "https://packages.microsoft.com/keys/microsoft.asc"
+kodo_repo: "http://repo.storware.eu/kodo-cloud/current/el{{ ansible_distribution_major_version }}"

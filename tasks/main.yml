@@ -1,1 +1,27 @@
 ---
+- name: Add Kodo Cloud repository
+  yum_repository:
+    name: kodo-cloud
+    description: Kodo Cloud repo
+    baseurl: "{{ kodo_repo }}"
+    gpgcheck: no
+
+- name: Add Microsoft repository
+  yum_repository:
+    name: Microsoft
+    description: Microsoft repository
+    baseurl: "{{ ms_repo_url }}"
+    gpgkey: "{{ ms_repo_gpg_key }}"
+    gpgcheck: yes
+
+- name: Install Kodo Cloud Agent
+  yum:
+    name: kodo-cloud-agent
+    state: latest
+
+- name: Start and enable Kodo Cloud Agent service
+  service:
+    name: kodo-cloud-agent
+    daemon-reload: yes
+    state: started
+    enabled: yes
