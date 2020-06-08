@@ -2,7 +2,7 @@ Role Name
 =========
 
 Kodo Cloud is a backup solution for Office 365. This role deploys Kodo Cloud Agent 
-which is a data-mover (component that integrates with the cloud and executes backup/restore operations)
+which is a data-mover (component which integrates with the cloud and executes backup/restore operations)
 
 Requirements
 ------------
@@ -33,11 +33,11 @@ and multiple agents on `agents` hosts
 ```
 - hosts: server
   roles:
-   - ansible-kodo-cloud-server
+   - xe0nic.ansible_kodo_cloud_server
 
 - hosts: agents
   roles:
-   - ansible-kodo-cloud-agent
+   - xe0nic.ansible_kodo_cloud_agent
 ```
 
 Example hosts inventory (you need to make sure that SSH public key authentication for
@@ -50,7 +50,7 @@ ansible_user = root
 [server]
 192.168.155.233
 
-[nodes]
+[agents]
 192.168.155.233
 ```
 
