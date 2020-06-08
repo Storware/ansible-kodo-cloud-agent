@@ -29,7 +29,7 @@
     state: present
 
 - name: Initialize Kodo Cloud Agent
-  shell: "{{ kodo_agent_init_script_path }} -s {{ server_fqdn }} -n {{ agent_name }}"
+  shell: "{{ kodo_agent_init_script_path }} -s {{ server_fqdn }}:{{ server_port }} -n {{ agent_name }}"
 
 - name: Start and enable Kodo Cloud Agent service
   service:
