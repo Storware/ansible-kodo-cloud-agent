@@ -16,7 +16,9 @@ Defaults:
 ```
 kodo_repo: "http://repo.storware.eu/kodo-cloud/current/el{{ ansible_distribution_major_version }}"
 ```
-`kodo_repo` variable points to Kodo Cloud RPM repository
+
+* `kodo_repo` variable points to Kodo Cloud RPM repository
+* `kodo_staging_path` - allows to configure where staging space resides on the agent (if agent is remote, mount manually server's staging over NFS first)
 
 
 Dependencies

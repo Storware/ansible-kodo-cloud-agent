@@ -29,7 +29,15 @@
     state: present
 
 - name: Initialize Kodo Cloud Agent
-  shell: "{{ kodo_agent_init_script_path }} -s {{ server_fqdn }}:{{ server_port }} -n {{ agent_name }}"
+  shell: "{{ kodo_agent_init_script_path }} -s {{ server_fqdn }}:{{ kodo_server_port }} -n {{ agent_name }}"
+
+- name: Create staging directory
+  file:
+    path: "{{ kodo_staging_path }}"
+    state: directory
+    owner: "{{ kodo_user }}"
+    group: "{{ kodo_group }}"
+    mode: "0700"
 
 - name: Start and enable Kodo Cloud Agent service
   service:
