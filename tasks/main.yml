@@ -41,7 +41,7 @@
     state: directory
     owner: "{{ kodo_user }}"
     group: "{{ kodo_group }}"
-    mode: "0700"
+    mode: "0770"
 
 - name: Start and enable Kodo Cloud Agent service
   service:
