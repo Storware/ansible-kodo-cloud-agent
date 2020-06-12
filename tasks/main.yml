@@ -30,6 +30,10 @@
 
 - name: Initialize Kodo Cloud Agent
   shell: "{{ kodo_agent_init_script_path }} -s {{ server_fqdn }}:{{ server_port }} -n {{ agent_name }}"
+  register: kodo_init_out
+  failed_when:
+    - kodo_init_out is failed
+    - kodo_init_out.rc != 4
 
 - name: Create staging directory
   file:
@@ -41,7 +45,7 @@
 
 - name: Start and enable Kodo Cloud Agent service
   service:
-    name: kodo-cloud-agent
+    name: "cloud-agent-{{ agent_name }}"
     daemon-reload: yes
     state: started
     enabled: yes
